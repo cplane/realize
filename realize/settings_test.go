@@ -3,7 +3,6 @@ package realize
 import (
 	"io/ioutil"
 	"math/rand"
-	"os"
 	"testing"
 	"time"
 )
@@ -88,14 +87,4 @@ func TestSettings_Read(t *testing.T) {
 func TestSettings_Fatal(t *testing.T) {
 	s := Settings{}
 	s.Fatal(nil, "test")
-}
-
-func TestSettings_Create(t *testing.T) {
-	s := Settings{}
-	p, err := os.Getwd()
-	if err != nil {
-		t.Fatal(err)
-	}
-	f := s.Create(p, "io_test")
-	os.Remove(f.Name())
 }
